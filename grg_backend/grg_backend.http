@@ -1,0 +1,6 @@
+@grg_backend_HostAddress = http://localhost:5265
+
+GET {{grg_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
