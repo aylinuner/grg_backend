@@ -30,8 +30,80 @@ public class DriverController : ControllerBase
     [HttpGet]
     public ActionResult<List<Driver>> GetDriversByFilters(string pname, string psurname)
     {
-        return Ok(drivers.Where(x=>x.name ==pname && x.surname ==psurname ));
+        var result = drivers
+       .Where(x =>
+           (string.IsNullOrEmpty(pname) || x.name.ToLower().Contains(pname.ToLower())) &&
+           (string.IsNullOrEmpty(psurname) || x.surname.ToLower().Contains(psurname.ToLower()))
+       ).ToList();
+        return Ok(result);
+    }
+
+    [Route("AddDriver")]
+    [HttpPost]
+    public IActionResult AddDriver([FromBody] Driver newDriver)
+    {
+        if (string.IsNullOrEmpty(newDriver.name) || string.IsNullOrEmpty(newDriver.surname))
+        {
+            return BadRequest(new
+            {
+                success = false,
+                message = "İsim ve soyisim boş bırakılamaz"
+            });
+        }
+        drivers.Add(newDriver);
+        return Ok(new
+        {
+            success = true,
+            message = "Sürücü başarıyla kaydedildi."
+        });
+    }
+    [Route("DeleteDriver/{id}")]
+    [HttpDelete]
+    public IActionResult DeleteDriver(string id)
+    {
+        var driver = drivers.FirstOrDefault(d => d.id == id);
+        if (driver == null)
+        {
+            return NotFound(new
+            {
+                success = false,
+                message = "Sürücü Bulunamadı"
+            });
+        }
+        drivers.Remove(driver);
+
+        return Ok(new
+        {
+            success = true,
+            message = "Sürücü başarıyla silindi"
+        });
+    }
+    
+    [Route("UpdateDriver/{id}")]
+    [HttpPut]
+    public IActionResult UpdateDriver(string id, [FromBody] Driver updateDriver)
+    {
+        var existDriver = drivers.FirstOrDefault(d => d.id == id);
+        if (existDriver == null)
+        {
+            return NotFound(new
+            {
+                success = false,
+                message = "Güncellenecek sürücü bulunamadı"
+            });
+        }
+        existDriver.name = updateDriver.name;
+        existDriver.surname = updateDriver.surname;
+
+        return Ok(new
+        {
+            success = true,
+            message = "Sürücü başarıyla güncellendi.",
+            data = existDriver
+        });
     }
 }
+
+
 
 // Driver sınıfı (ayrı dosyada olabilir)
