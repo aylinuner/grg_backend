@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "ktQjtC93JYkKxFx0I/7TSS5zVK9wSh/shUCGdeH7AQw=",
+  "Source": "grg_backend",
+  "BasePath": "_content/grg_backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

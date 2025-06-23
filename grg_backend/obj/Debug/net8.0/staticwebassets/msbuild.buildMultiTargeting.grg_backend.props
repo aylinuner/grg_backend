@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\grg_backend.props" />
+</Project>
