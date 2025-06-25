@@ -7,9 +7,9 @@ public class DriverController : ControllerBase
 {
     private static List<Driver> drivers = new List<Driver>
     {
-        new Driver { id = "1", name = "Aylin", surname = "Üner" },
-        new Driver { id = "2", name = "Ayşe", surname = "Üner" },
-        new Driver { id = "3", name = "Aysun", surname = "Üner" }
+        new Driver { id = "1", name = "Aylin", surname = "Yılmaz" },
+        new Driver { id = "2", name = "Ayşe", surname = "Demir" },
+        new Driver { id = "3", name = "Aysun", surname = "Uçar" }
     };
 
     // Statik constructor ile ekleme yapabiliriz
@@ -103,7 +103,5 @@ public class DriverController : ControllerBase
         });
     }
 }
-
-
 
 // Driver sınıfı (ayrı dosyada olabilir)
