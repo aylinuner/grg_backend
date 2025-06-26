@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("grg_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0198ea51c53ebce65ead542d50cb3ed646728b61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db96dece979d4be04a42f4a247845f407bbccb43")]
 [assembly: System.Reflection.AssemblyProductAttribute("grg_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("grg_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
